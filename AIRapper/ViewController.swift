@@ -37,6 +37,8 @@ final class ViewController: UIViewController {
         return textView
     }()
     
+    private var service: RapperChatService?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -55,14 +57,35 @@ final class ViewController: UIViewController {
             responseView.heightAnchor.constraint(greaterThanOrEqualToConstant: 220)
         ])
         
+        do {
+            service = try RapperChatService()
+        } catch {
+            responseView.text = error.localizedDescription
+        }
+        
         sendButton.addTarget(self, action: #selector(sendTapped), for: .touchUpInside)
     }
     
     @objc
     private func sendTapped() {
+        guard let service else { return }
+        let prompt = promptField.text ?? ""
         responseView.text = "Loading..."
-        // TODO: Call your chat service and update responseView.text with the returned bars.
+        sendButton.isEnabled = false
+        
+        Task {
+            do {
+                let reply = try await service.respond(to: prompt)
+                responseView.text = reply
+            } catch let error as OpenRouterError {
+                responseView.text = "OpenRouter error \(error.statusCode): \(error.message)"
+            } catch {
+                responseView.text = error.localizedDescription
+            }
+            sendButton.isEnabled = true
+        }
     }
+    
 }
 
 //class ViewController: UIViewController {

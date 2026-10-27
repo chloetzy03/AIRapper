@@ -23,7 +23,7 @@ enum RapperChatError: LocalizedError {
 
 final class RapperChatService {
     private let client: OpenRouterClient
-    private let model = "openai/gpt-5-mini"
+    private let model = "anthropic/claude-haiku-5.5"
     private let systemPrompt = "You are Ah Beng GPT, a larger-than-life hip-hop hype artist. Answer with playful, witty rap bars packed with internal rhymes, Singlish slang, and good vibes. Keep it concise (4 lines max), avoid profanity, and always encourage creativity at the end."
 
     init(apiKey: String? = nil) throws {
