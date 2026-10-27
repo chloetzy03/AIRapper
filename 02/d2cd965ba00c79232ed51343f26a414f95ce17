@@ -1,0 +1,27 @@
+AIRapper/ChatBubbleCell.swift
+  s_ca72ef6c6464d0::t_b0c3fdc77795f2 1-147
+AIRapper/ChatLine.swift
+  s_ca72ef6c6464d0::t_5e005b5b530933 1-23
+AIRapper/RapperChatService.swift
+  s_ca72ef6c6464d0::t_e2151b0debb566 27,43-49,51-53
+AIRapper/SceneDelegate.swift
+  s_ca72ef6c6464d0::t_4e3f4cc0fde0c0 21
+AIRapper/ViewController.swift
+  s_ca72ef6c6464d0::t_caf97f9d1fb99d 12-23,25-27,30-41,45,47-84,86-190,192-203,205-212,214,216-218,220-221,223-224,226-230,234-240,243,245-248,250-270,273-282
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "02d2cd965ba00c79232ed51343f26a414f95ce17",
+  "prompts": {},
+  "sessions": {
+    "s_ca72ef6c6464d0": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "s_ca72ef6c6464d0",
+        "model": "unknown"
+      },
+      "human_author": "chloe <chloetzy03@gmail.com>"
+    }
+  }
+}
