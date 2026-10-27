@@ -1,0 +1,21 @@
+AIRapper/RapperChatService.swift
+  s_b78081d9d42329::t_585576010e747c 26
+AIRapper/ViewController.swift
+  s_b78081d9d42329::t_541f6ff330e49b 40-41,60-65,71-72,74-86,88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "7c52a5b6ecd97384c4fcbf01f7537f0b9401599d",
+  "prompts": {},
+  "sessions": {
+    "s_b78081d9d42329": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "s_b78081d9d42329",
+        "model": "unknown"
+      },
+      "human_author": "chloe <chloetzy03@gmail.com>"
+    }
+  }
+}
