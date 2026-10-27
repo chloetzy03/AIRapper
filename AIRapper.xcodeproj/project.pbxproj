@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6B52011430903F1A00727DD4 /* OpenRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 6B52011330903F1A00727DD4 /* OpenRouter */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		6B5200FB30903E9E00727DD4 /* AIRapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIRapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B52011430903F1A00727DD4 /* OpenRouter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = AIRapper;
 			packageProductDependencies = (
+				6B52011330903F1A00727DD4 /* OpenRouter */,
 			);
 			productName = AIRapper;
 			productReference = 6B5200FB30903E9E00727DD4 /* AIRapper.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 6B5200F230903E9E00727DD4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6B52011230903F1A00727DD4 /* XCLocalSwiftPackageReference "swift-openrouter" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6B5200FC30903E9E00727DD4 /* Products */;
 			projectDirPath = "";
@@ -339,6 +348,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		6B52011230903F1A00727DD4 /* XCLocalSwiftPackageReference "swift-openrouter" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "swift-openrouter";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6B52011330903F1A00727DD4 /* OpenRouter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B52011230903F1A00727DD4 /* XCLocalSwiftPackageReference "swift-openrouter" */;
+			productName = OpenRouter;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6B5200F330903E9E00727DD4 /* Project object */;
 }
