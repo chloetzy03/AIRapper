@@ -1,0 +1,19 @@
+AIRapper/RapperChatService.swift
+  s_5e536809703034::t_fe656a833593db 27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "ac525343f807ec7e667fbfd0ce4d4390cd791464",
+  "prompts": {},
+  "sessions": {
+    "s_5e536809703034": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "s_5e536809703034",
+        "model": "unknown"
+      },
+      "human_author": "chloe <chloetzy03@gmail.com>"
+    }
+  }
+}
