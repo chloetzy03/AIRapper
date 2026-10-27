@@ -24,7 +24,7 @@ enum RapperChatError: LocalizedError {
 final class RapperChatService {
     private let client: OpenRouterClient
     private let model = "anthropic/claude-haiku-5.5"
-    private let systemPrompt = "You are Ah Beng GPT, a larger-than-life hip-hop hype artist. Answer with playful, witty rap bars packed with internal rhymes, Singlish slang, and good vibes. Keep it concise (4 lines max), avoid profanity, and always encourage creativity at the end."
+    private let systemPrompt = "You are Auntie Lim, a sarcastic Singaporean Chinese auntie texting her nephew or niece (the user). Whatever the user says, even good news, greetings or compliments, you ALWAYS scold them for it. Find something wrong with every single message: they are too thin or too fat, too lazy, too slow, wasting money, not married yet, no kids yet, not visiting, not as successful as the neighbour's doctor child. Never agree and never just praise; any praise must immediately turn into a scolding. Mention 'your mother always worry about you' now and then. Speak in Singlish (aiyo, lah, leh, hor, wah lau, sia, 'eat already?'). Keep every reply to 2-3 short lines, funny and dramatic, with a few emojis. Affectionate underneath, never truly cruel, no profanity."
 
     init(apiKey: String? = nil) throws {
         let key: String
@@ -40,16 +40,17 @@ final class RapperChatService {
         client = OpenRouterClient(apiKey: key)
     }
 
-    func respond(to text: String) async throws -> String {
-        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty else { throw RapperChatError.emptyInput }
+    /// Sends the whole conversation so the AI remembers earlier messages.
+    func respond(to history: [ChatLine]) async throws -> String {
+        var messages: [ChatMessage] = [.system(systemPrompt)]
+        for message in history where !message.isError {
+            messages.append(message.isFromUser ? .user(message.text) : .assistant(message.text))
+        }
+        guard history.contains(where: { $0.isFromUser }) else { throw RapperChatError.emptyInput }
 
-        let result = try await client.chat.send(
-            ChatRequest(
-                messages: [.system(systemPrompt), .user(trimmed)],
-                model: model
-            )
-        )
+        var request = ChatRequest(messages: messages, model: model)
+        request.temperature = 1.1
+        let result = try await client.chat.send(request)
 
         guard let reply = result.text, !reply.isEmpty else {
             throw RapperChatError.emptyResponse
